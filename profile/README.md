@@ -22,13 +22,13 @@ npm install bundlesocial
 ```
 
 ```typescript
-import { BundleSocial } from 'bundlesocial';
+import { Bundlesocial } from 'bundlesocial';
 
-const bundle = new BundleSocial(process.env.BUNDLE_SOCIAL_API_KEY);
+const bundle = new Bundlesocial(process.env.BUNDLE_SOCIAL_API_KEY!);
 
 await bundle.post.postCreate({
   requestBody: {
-    teamId: 'team_xxx',
+    teamId: '<TEAM_ID>',
     title: 'Hello world from bundle.social',
     status: 'SCHEDULED',
     postDate: new Date(Date.now() + 60 * 60 * 1000).toISOString(),
@@ -39,7 +39,7 @@ await bundle.post.postCreate({
       INSTAGRAM: {
         type: 'POST',
         text: 'Hello world from bundle.social!',
-        uploadIds: ['upload_xxx'],
+        uploadIds: ['<UPLOAD_ID>'],
       },
     },
   },
@@ -59,6 +59,7 @@ No SDK, no problem. Base URL `https://api.bundle.social`, everything under `/api
 curl https://api.bundle.social/api/v1
 
 # 1. Which teams does this key own? teamId is the workspace every other call hangs off.
+#    Every id in the API - teams, uploads, posts, accounts - is a UUID v4.
 curl https://api.bundle.social/api/v1/team \
   -H "x-api-key: $BUNDLE_SOCIAL_API_KEY"
 
@@ -68,7 +69,7 @@ curl -X POST https://api.bundle.social/api/v1/post \
   -H "x-api-key: $BUNDLE_SOCIAL_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "teamId": "TEAM_ID",
+    "teamId": "<TEAM_ID>",
     "title": "Hello from bundle.social",
     "status": "SCHEDULED",
     "postDate": "2027-01-15T15:00:00.000Z",
@@ -122,7 +123,7 @@ One key, one base URL, 114 paths in the published spec. A sample of the surface:
 | **Plumbing** | `GET /api/v1` · `/organization/usage/*` · `/team` | Live per-platform health, usage metering, teams as tenants |
 
 > [!TIP]
-> Building multi-tenant? A **team per customer** is the pattern — accounts, posts and daily limits are scoped to a team, while API keys and webhooks are org-wide. Start at the [API introduction](https://info.bundle.social/api-reference/introduction?ref=github-org-readme). Prefer to generate your own client? The [spec](https://api.bundle.social/swagger-json) is public and complete.
+> Building multi-tenant? A **team per customer** is the pattern - accounts, posts and daily limits are scoped to a team, while API keys and webhooks are org-wide. Start at the [API introduction](https://info.bundle.social/api-reference/introduction?ref=github-org-readme). Prefer to generate your own client? The [spec](https://api.bundle.social/swagger-json) is public and complete.
 
 ## SDK and tooling
 
@@ -178,8 +179,8 @@ A runnable version lives in [`bundlesocial-examples/python`](https://github.com/
 
 | What | How |
 |---|---|
-| [MCP server](https://info.bundle.social/api-reference/mcp?ref=github-org-readme) | `npx bundlesocial-mcp` — a local stdio server exposing the whole API as MCP tools, for Claude Code, Claude Desktop, Cursor and any other MCP client |
-| [CLI](https://info.bundle.social/api-reference/cli?ref=github-org-readme) | `npx bundlesocial-cli` — JSON on stdout, human status on stderr, so it pipes into `jq`, into CI, into cron and into shell-out agents. Requires Node 20+ |
+| [MCP server](https://info.bundle.social/api-reference/mcp?ref=github-org-readme) | `npx bundlesocial-mcp` - a local stdio server exposing the whole API as MCP tools, for Claude Code, Claude Desktop, Cursor and any other MCP client |
+| [CLI](https://info.bundle.social/api-reference/cli?ref=github-org-readme) | `npx bundlesocial-cli` - JSON on stdout, human status on stderr, so it pipes into `jq`, into CI, into cron and into shell-out agents. Requires Node 20+ |
 | [MCP agent example](https://github.com/bundleglobal/bundlesocial-examples/tree/main/mcp-agent) | A working agent wired to the MCP server, ready to clone |
 | [Make.com](https://github.com/bundleglobal/bundlesocial-examples/tree/main/make.com/tiktok) | No-code TikTok workflow built on the REST API |
 | [Postman workspace](https://www.postman.com/bundlesocial/workspace/bundle-social-api/overview) | The whole API, importable, no local setup |
@@ -190,7 +191,7 @@ Runnable code, not pseudocode. The fastest way to see what the API can carry.
 
 | Project | Stars | What it is |
 |---|---|---|
-| **[bundlesocial-examples](https://github.com/bundleglobal/bundlesocial-examples)** | [![stars](https://img.shields.io/github/stars/bundleglobal/bundlesocial-examples?style=flat&label=stars&color=DB445A)](https://github.com/bundleglobal/bundlesocial-examples) | Every example below, one repo. Each directory is independent — clone it and run the one that matches your runtime |
+| **[bundlesocial-examples](https://github.com/bundleglobal/bundlesocial-examples)** | [![stars](https://img.shields.io/github/stars/bundleglobal/bundlesocial-examples?style=flat&label=stars&color=DB445A)](https://github.com/bundleglobal/bundlesocial-examples) | Every example below, one repo. Each directory is independent - clone it and run the one that matches your runtime |
 | [`nextjs/`](https://github.com/bundleglobal/bundlesocial-examples/tree/main/nextjs) | | Full-stack SaaS integration: connect flow, composer, scheduling |
 | [`express/`](https://github.com/bundleglobal/bundlesocial-examples/tree/main/express) | | Node backend: server-side publishing and webhook handling |
 | [`python/`](https://github.com/bundleglobal/bundlesocial-examples/tree/main/python) | | Scripts and backend jobs straight against the REST API |
