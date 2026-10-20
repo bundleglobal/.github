@@ -49,6 +49,7 @@ await bundle.post.postCreate({
 [![bundlesocial](https://img.shields.io/npm/v/bundlesocial?label=bundlesocial&color=DB445A)](https://www.npmjs.com/package/bundlesocial)
 [![bundlesocial-cli](https://img.shields.io/npm/v/bundlesocial-cli?label=bundlesocial-cli&color=DB445A)](https://www.npmjs.com/package/bundlesocial-cli)
 [![bundlesocial-mcp](https://img.shields.io/npm/v/bundlesocial-mcp?label=bundlesocial-mcp&color=DB445A)](https://www.npmjs.com/package/bundlesocial-mcp)
+[![n8n-nodes-bundlesocial](https://img.shields.io/npm/v/n8n-nodes-bundlesocial?label=n8n-nodes-bundlesocial&color=DB445A)](https://www.npmjs.com/package/n8n-nodes-bundlesocial)
 [![OpenAPI 3.0](https://img.shields.io/badge/OpenAPI-3.0-DB445A)](https://api.bundle.social/swagger)
 [![Docs](https://img.shields.io/badge/docs-info.bundle.social-555)](https://info.bundle.social/welcome?ref=github-org-readme)
 
@@ -135,8 +136,9 @@ One key, one base URL, 114 paths in the published spec. A sample of the surface:
 | [Node.js SDK](https://github.com/bundleglobal/bundlesocial-node) | `npm install bundlesocial` | [![npm](https://img.shields.io/npm/v/bundlesocial?label=&color=DB445A)](https://www.npmjs.com/package/bundlesocial) |
 | [CLI](https://info.bundle.social/api-reference/cli?ref=github-org-readme) | `npm install -g bundlesocial-cli` | [![npm](https://img.shields.io/npm/v/bundlesocial-cli?label=&color=DB445A)](https://www.npmjs.com/package/bundlesocial-cli) |
 | [MCP server](https://info.bundle.social/api-reference/mcp?ref=github-org-readme) | `npx bundlesocial-mcp` | [![npm](https://img.shields.io/npm/v/bundlesocial-mcp?label=&color=DB445A)](https://www.npmjs.com/package/bundlesocial-mcp) |
+| [n8n node](https://info.bundle.social/api-reference/n8n?ref=github-org-readme) | `n8n-nodes-bundlesocial` in **Settings > Community Nodes** | [![npm](https://img.shields.io/npm/v/n8n-nodes-bundlesocial?label=&color=DB445A)](https://www.npmjs.com/package/n8n-nodes-bundlesocial) |
 
-The SDK is generated from the OpenAPI spec. Need Python, Go or anything else? Point your generator at [the spec](https://api.bundle.social/swagger-json), or [ask us](https://github.com/bundleglobal/bundlesocial-examples/issues).
+The SDK and the n8n node are generated from the OpenAPI spec. Need Python, Go or anything else? Point your generator at [the spec](https://api.bundle.social/swagger-json), or [ask us](https://github.com/bundleglobal/bundlesocial-examples/issues).
 
 <details>
 <summary><strong>Python quickstart, no SDK required</strong></summary>
@@ -182,6 +184,7 @@ A runnable version lives in [`bundlesocial-examples/python`](https://github.com/
 | [MCP server](https://info.bundle.social/api-reference/mcp?ref=github-org-readme) | `npx bundlesocial-mcp` - a local stdio server exposing the whole API as MCP tools, for Claude Code, Claude Desktop, Cursor and any other MCP client |
 | [CLI](https://info.bundle.social/api-reference/cli?ref=github-org-readme) | `npx bundlesocial-cli` - JSON on stdout, human status on stderr, so it pipes into `jq`, into CI, into cron and into shell-out agents. Requires Node 20+ |
 | [MCP agent example](https://github.com/bundleglobal/bundlesocial-examples/tree/main/mcp-agent) | A working agent wired to the MCP server, ready to clone |
+| [n8n](https://info.bundle.social/api-reference/n8n?ref=github-org-readme) | `n8n-nodes-bundlesocial` - one node with every API operation, platform settings per network, auto-paging and large uploads; also works as an AI Agent tool |
 | [Make.com](https://github.com/bundleglobal/bundlesocial-examples/tree/main/make.com/tiktok) | No-code TikTok workflow built on the REST API |
 | [Postman workspace](https://www.postman.com/bundlesocial/workspace/bundle-social-api/overview) | The whole API, importable, no local setup |
 
@@ -210,6 +213,7 @@ Runnable code, not pseudocode. The fastest way to see what the API can carry.
 | Repo | What it is |
 |---|---|
 | [bundlesocial-node](https://github.com/bundleglobal/bundlesocial-node) | Source of the typed TypeScript SDK, generated from the OpenAPI spec |
+| [bundlesocial-n8n](https://github.com/bundleglobal/bundlesocial-n8n) | Source of the n8n community node, generated from the OpenAPI spec |
 | [bundlesocial-docs](https://github.com/bundleglobal/bundlesocial-docs) | The MDX behind [info.bundle.social](https://info.bundle.social). Typo in the docs? PR it here |
 
 Anything not listed on this page is an experiment, a fork or an archive.
