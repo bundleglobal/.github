@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://bundle.social/?ref=github-org-readme">
-  <img src="https://raw.githubusercontent.com/bundleglobal/.github/main/profile/banner.png" alt="bundle.social: the unified social media API for developers" width="100%">
+  <img width="2400" height="1260" alt="og-hero@2x" src="https://github.com/user-attachments/assets/1c40a89d-c642-45e3-8749-250218dcb85c" />
 </a>
 
 ### Ship social features, not fifteen OAuth integrations.
